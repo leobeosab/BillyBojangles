@@ -1,0 +1,21 @@
+{
+	"type": "home",
+	"blocks": [
+		{
+			"type": "header",
+			"text": {
+				"type": "plain_text",
+				"text": "Billy Bojangles house of nonsense",
+				"emoji": true
+			}
+		},
+		{
+			"type": "section",
+			"text": {
+				"type": "plain_text",
+				"text": "Mike is smelly",
+				"emoji": true
+			}
+		}
+	]
+}
