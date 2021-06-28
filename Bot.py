@@ -40,21 +40,28 @@ def update_home_tab(client, event, logger):
 @app.event("app_mention")
 def mentioned(logger, event, say):
     try:
-        if "status" not in event['text']:
-            say('I dunno what you mean fam')
+        if "status" in event['text']:
+            say(
+                'Sure, let me get you a list of feature branches ahead of develop'
+            )
+            say(
+                blocks=Messages.handle_status(event['text'])
+            )
             return
 
-        say(
-            'Sure, let me get you a list of feature branches ahead of develop'
-        )
+        if "add shortcut" in event['text']:
+            say(
+                blocks=Messages.handle_add_shortcut(event['text'])
+            )
+            return
 
-        say(
-            blocks=Messages.handle_status(event['text'])
-        )
+        say('I dunno what you mean fam')
+        return
+
 
     except Exception as e:
         logger.error(f"Error on app mention {e}")
-        say('Can\'t do that, Ryan sucks as a dev: ', str(e))
+        say('Error can not do that, Ryan sucks as a dev: ', str(e))
 
 
 @app.action("create-pull-request")
